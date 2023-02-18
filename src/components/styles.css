@@ -1,0 +1,85 @@
+
+.main_things {
+    width: 390px;
+}
+
+.product_list{ 
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 100%;
+    padding-top: 30px;
+   
+    text-align: center;
+     
+}
+.product{
+    margin: 15px;
+    width: 40%;
+    cursor: 'pointer';
+    text-align: center;
+}
+.name{
+    margin:10px;
+    
+}
+.product_img{
+    margin-bottom:5px;
+}
+.product_page{
+    display: flex;
+
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 300px;
+}
+.outer_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 390px;
+}
+.nameprice{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    padding: 10px;
+    
+}
+.product_button{
+    margin-top:20px;
+}
+.img{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 50px;
+   
+}
+.information{
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.naming{
+    font-weight: 500;
+    font-size: 20px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.information span{
+    font-size: 18px;
+}
+.information_table{
+    margin-top: 10px;
+}
+.about{
+   display: flex;
+   flex-direction: row;
+}
+.about div {
+    margin-right: 10px;
+}

@@ -1,0 +1,38 @@
+.container {
+   
+
+
+}
+.navbar {
+    background-color: #aba484;
+    position: sticky;
+    z-index: 50;
+    display: flex;
+    
+  
+   
+    text-align: center;
+    
+}
+.navbar span {
+    color:white;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+
+.navlink:active,
+.navlink:hover,
+.navlink {
+    color: white;
+    font-style: normal;
+    font-size: large;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+.try{
+    display: flex;
+    flex-direction: column;
+}
+
