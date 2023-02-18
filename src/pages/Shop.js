@@ -30,8 +30,8 @@ const getSearchParams = (searchParams) => {
 const Shop = observer(() => {
     const { catalog } = useContext(AppContext)
 
-    const [categoriesFetching, setCategoriesFetching] = useState(true)
-    const [brandsFetching, setBrandsFetching] = useState(true)
+    // const [categoriesFetching, setCategoriesFetching] = useState(true)
+    // const [brandsFetching, setBrandsFetching] = useState(true)
     const [productsFetching, setProductsFetching] = useState(true)
 
     const location = useLocation()

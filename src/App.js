@@ -32,7 +32,7 @@ const App = observer(() => {
             .finally(
                 () => setLoading(false)
             )
-    }, [])
+    }, [basket,user])
 
     // показываем loader, пока получаем пользователя и корзину
     if (loading) {

@@ -20,6 +20,7 @@ const isValid = (input) => {
             return pattern.test(input.value.trim())
         case 'address':
             return input.value.trim() !== ''
+        default: ""
     }
 }
 
@@ -51,7 +52,7 @@ const Checkout = () => {
             .catch(
                 error => user.logout()
             )
-    }, [])
+    }, [basket,user])
 
     if (fetching) { // loader, пока получаем корзину
         return <Spinner animation="border" />
