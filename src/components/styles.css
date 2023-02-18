@@ -1,6 +1,6 @@
 
 .main_things {
-    width: 390px;
+    width: 380px;
 }
 
 .product_list{ 
@@ -38,7 +38,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     height: 100%;
-    width: 390px;
+    width: 380px;
 }
 .nameprice{
     display: flex;
