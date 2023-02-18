@@ -1,18 +1,15 @@
 .container {
-   
-
-
+    margin: 0;
+    padding: 0;
 }
 .navbar {
     background-color: #aba484;
     position: sticky;
     z-index: 50;
     display: flex;
-    
-  
-   
     text-align: center;
-    
+    margin: 0;
+    padding: 0;
 }
 .navbar span {
     color:white;
