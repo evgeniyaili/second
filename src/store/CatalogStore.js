@@ -3,13 +3,13 @@ import { makeAutoObservable } from 'mobx'
 class CatalogStore {
    
     constructor() {
-        _categories = [
+        this._categories = [
             {id: 1, name: 'Sneakers'},
             {id: 2, name: 'T-Shirts'},
             {id: 3, name: 'Hoodies'}
         ]
-            _brands = []
-            _products = [
+        this._brands = []
+        this._products = [
                 {id: 1, name: "Nike AF1", price: "2000000", img: `url(${star})`, info: 'kfjlskdjlkdjsdlkfj'},
             {id: 6, name: "Nike RES", price: "2000000", img: ''},
             {id: 7, name: "Nike ponse", price: "2000000", img: ''},
@@ -18,11 +18,11 @@ class CatalogStore {
             {id: 4, name: "Nike AirMax", price: "202020", img: ''},
             {id: 5, name: "Nike Running", price: "202020", img: ''},
             ]
-            _category = null // выбранная категория
-            _brand = null // выбранный бренд
-            _page = 1 // текущая страница
-            _count = 0 // сколько всего товаров
-            _limit = 4 // товаров на страницу
+            this._category = null // выбранная категория
+            this._brand = null // выбранный бренд
+            this._page = 1 // текущая страница
+            this._count = 0 // сколько всего товаров
+            this._limit = 4 // товаров на страницу
         
         makeAutoObservable(this)
     }
