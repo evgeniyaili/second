@@ -20,7 +20,7 @@ const isValid = (input) => {
             return pattern.test(input.value.trim())
         case 'address':
             return input.value.trim() !== ''
-        default: ""
+        default: //
     }
 }
 
