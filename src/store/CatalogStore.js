@@ -10,7 +10,7 @@ class CatalogStore {
         ]
         this._brands = []
         this._products = [
-                {id: 1, name: "Nike AF1", price: "2000000", img: `url(${star})`, info: 'kfjlskdjlkdjsdlkfj'},
+                {id: 1, name: "Nike AF1", price: "2000000", img: '', info: 'kfjlskdjlkdjsdlkfj'},
             {id: 6, name: "Nike RES", price: "2000000", img: ''},
             {id: 7, name: "Nike ponse", price: "2000000", img: ''},
             {id: 2, name: "Yeezy Boosts", price: "1231412", img: ''},
