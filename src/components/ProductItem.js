@@ -13,7 +13,7 @@ const ProductItem = ({data}) => {
     const navigate = useNavigate()
     const { id } = useParams()
     const { basket } = useContext(AppContext)
-    const [product, setProduct] = useState(null)
+    const [setProduct] = useState(null)
     // const [rating, setRating] = useState(null)
 
     useEffect(() => {
@@ -21,11 +21,11 @@ const ProductItem = ({data}) => {
         // fetchProdRating(id).then(data => setRating(data))
     }, [id])
 
-    const handleClick = (productId) => {
-        append(productId).then(data => {
-            basket.products = data.products
-        })
-    }
+    // const handleClick = (productId) => {
+    //     append(productId).then(data => {
+    //         basket.products = data.products
+    //     })
+    // }
     return (
         <div className="product" onClick={() => navigate(`/product/${data.id}`)}>
             <Image className="product_img" width={150} height={150} src={process.env.REACT_APP_IMG_URL + data.image}/>
