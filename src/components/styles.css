@@ -17,10 +17,14 @@
     margin: 15px;
     width: 40%;
     cursor: 'pointer';
-    text-align: center;
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .name{
     margin:10px;
+    font-size: 13px;
     
 }
 .product_img{
@@ -82,4 +86,22 @@
 }
 .about div {
     margin-right: 10px;
+}
+
+.admins_container {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.panel {
+    text-align: center;
+    margin: 20px 0;
+}
+.pricediv{
+    font-weight: 600;
+}
+.plusdiv{
+     
 }

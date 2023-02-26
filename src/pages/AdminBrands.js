@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { fetchBrands, deleteBrand } from '../http/catalogAPI.js'
-import { Button, Container, Spinner, Table } from 'react-bootstrap'
+import { Button, Container, Nav, Navbar, NavLink, Spinner, Table } from 'react-bootstrap'
 import EditBrand from '../components/EditBrand.js'
 
 
@@ -51,9 +51,17 @@ const AdminBrands = () => {
     }
 
     return (
-        <Container>
-            <h1>Бренды</h1>
-            <Button onClick={() => handleCreateClick()}>Создать бренд</Button>
+        <Container className='w-auto'>
+            <Navbar bg="dark" variant="dark" className="w-100 rounded p-2">
+                <Container>
+                    <NavLink href="/" className="navbar-brand ml-5">Магазин</NavLink>
+                        <Nav className="ml-auto">
+                            <NavLink href="/admin" className="nav-link mr-5">Панель управления</NavLink>
+                        </Nav>
+                </Container>
+            </Navbar>
+                <h4 className='panel'>Бренды</h4>
+            <Button className="mb-3 ml-3" onClick={() => handleCreateClick()}>Создать бренд</Button>
             <EditBrand id={brandId} show={show} setShow={setShow} setChange={setChange} />
             {brands.length > 0 ? (
                 <Table bordered hover size="sm" className="mt-3">

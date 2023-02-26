@@ -10,19 +10,13 @@ class CatalogStore {
         ]
         this._brands = []
         this._products = [
-                {id: 1, name: "Nike AF1", price: "2000000", img: '', info: 'kfjlskdjlkdjsdlkfj'},
-            {id: 6, name: "Nike RES", price: "2000000", img: ''},
-            {id: 7, name: "Nike ponse", price: "2000000", img: ''},
-            {id: 2, name: "Yeezy Boosts", price: "1231412", img: ''},
-            {id: 3, name: "Adidas Originals Hoodie", price: "202020", img: ''},
-            {id: 4, name: "Nike AirMax", price: "202020", img: ''},
-            {id: 5, name: "Nike Running", price: "202020", img: ''},
+               
             ]
             this._category = null // выбранная категория
             this._brand = null // выбранный бренд
             this._page = 1 // текущая страница
             this._count = 0 // сколько всего товаров
-            this._limit = 4 // товаров на страницу
+            this._limit = 100 // товаров на страницу
         
         makeAutoObservable(this)
     }

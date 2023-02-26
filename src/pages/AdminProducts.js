@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { fetchAllProducts, deleteProduct } from '../http/catalogAPI.js'
-import { Button, Container, Spinner, Table, Pagination } from 'react-bootstrap'
+import { Button, Container, Spinner, Table, Pagination, Navbar, NavLink, Nav } from 'react-bootstrap'
 import CreateProduct from '../components/CreateProduct.js'
 import UpdateProduct from '../components/UpdateProduct.js'
 
@@ -85,9 +85,17 @@ const AdminProducts = () => {
     }
 
     return (
-        <Container>
-            <h1>Товары</h1>
-            <Button onClick={() => setCreateShow(true)}>Создать товар</Button>
+        <Container className='w-auto'>
+            <Navbar bg="dark" variant="dark" className="w-100 rounded p-2">
+                <Container>
+                    <NavLink href="/" className="navbar-brand ml-5">Магазин</NavLink>
+                        <Nav className="ml-auto">
+                            <NavLink href="/admin" className="nav-link mr-5">Панель управления</NavLink>
+                        </Nav>
+                </Container>
+            </Navbar>
+                <h4 className='panel'>Товары</h4>
+            <Button className="mb-3 ml-3" onClick={() => setCreateShow(true)}>Создать товар</Button>
             <CreateProduct show={createShow} setShow={setCreateShow} setChange={setChange} />
             <UpdateProduct id={product} show={updateShow} setShow={setUpdateShow} setChange={setChange} />
             {products.length > 0 ? (

@@ -1,7 +1,17 @@
-.container {
-    margin: 0;
+*{
+    margin:0;
     padding: 0;
 }
+body{
+    background: var(--tg-theme-bg-color) ;
+    color:var(--tg-theme-text-color) ;
+}
+
+.container {
+    background: var(--tg-theme-bg-color) ;
+    color:var(--tg-theme-text-color) ;
+} 
+
 .navbar {
     background-color: #aba484;
     position: sticky;
@@ -16,6 +26,9 @@
     color:white;
     font-weight: 400;
     font-size: 25px;
+}
+.toggle {
+    margin-right: 18px;
 }
 
 

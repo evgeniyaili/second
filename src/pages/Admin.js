@@ -1,9 +1,10 @@
-import { Container, Button, Navbar, Nav } from 'react-bootstrap'
+import { Container, Button, Navbar, Nav, ListGroup, ListGroupItem } from 'react-bootstrap'
 import { useContext } from 'react'
 import { AppContext } from '../components/AppContext.js'
 import { Link, useNavigate } from 'react-router-dom'
 import { logout } from '../http/userAPI.js'
 import { NavLink } from 'react-router-dom'
+import "../components/styles.css";
 
 
 
@@ -18,26 +19,35 @@ const Admin = () => {
     }
 
     return (
-        <Container>
-            <Navbar bg="dark" variant="dark">
-            <Container>
-                <NavLink to="/" className="navbar-brand">Магазин</NavLink>
-                <Nav className="ml-auto">
-                            <NavLink to="/admin" className="nav-link">Панель управления</NavLink>
-                </Nav>
-            </Container>
-        </Navbar>
-            <h1>Панель управления</h1>
-            <p>
-                Это панель управления магазином для администратора
-            </p>
-            <ul>
-                <li><Link to="/admin/orders">Заказы в магазине</Link></li>
-                <li><Link to="/admin/categories">Категории каталога</Link></li>
-                <li><Link to="/admin/brands">Бренды каталога</Link></li>
-                <li><Link to="/admin/products">Товары каталога</Link></li>
-            </ul>
-            <Button onClick={handleLogout}>Выйти</Button>
+        <Container className='admins_container'>
+            <Navbar bg="dark" variant="dark" className="w-100 rounded p-2">
+                <Container>
+                    <NavLink to="/" className="navbar-brand ml-5">Магазин</NavLink>
+                    <Nav className="ml-auto">
+                        <NavLink to="/admin" className="nav-link mr-5">Панель управления</NavLink>
+                    </Nav>
+                </Container>
+            </Navbar>
+                <ListGroup className="w-50">
+                    <h2 className='panel'>Панель управления</h2>
+                    <span>
+                            Это панель управления магазином для администратора
+                    </span>
+                        <ListGroup.Item className='mb-2 mt-3 rounded text-center bg-success text-white' action href="/admin/orders">
+                            Заказы в магазине
+                        </ListGroup.Item>
+                        <ListGroup.Item className='mb-2 rounded text-center bg-success text-white' action href="/admin/categories">
+                            Категории каталога
+                        </ListGroup.Item>
+                        <ListGroup.Item className='mb-2 rounded text-center bg-success text-white' action href="/admin/brands">
+                            Бренды каталога
+                        </ListGroup.Item>
+                        <ListGroup.Item className='mb-2 rounded text-center bg-success text-white' action href="/admin/products">
+                            Товары каталога
+                        </ListGroup.Item>
+                                <Button className="mb-3 mt-4 w-25"onClick={handleLogout}>Выйти</Button>
+                </ListGroup>
+                
         </Container>
     )
 }

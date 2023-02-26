@@ -18,7 +18,7 @@ export default function App() {
         /> */}
         <span>Shop</span>
       </NavLink>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" className="toggle"/>
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
                 <CategoryBar/>

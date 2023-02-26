@@ -11,6 +11,7 @@ import NavBar from '../components/NavBar';
 import "../components/styles.css";
 
 
+
 const getSearchParams = (searchParams) => {
     let category = searchParams.get('category')
     if (category && /[1-9][0-9]*/.test(category)) {
@@ -106,6 +107,7 @@ const Shop = observer(() => {
                             <Spinner animation="border" />
                         ) : (
                             <ProductList />
+                            
                         )}
                     </div>
                 </div>

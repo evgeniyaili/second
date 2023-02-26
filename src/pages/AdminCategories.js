@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { fetchCategories, deleteCategory } from '../http/catalogAPI.js'
-import { Button, Container, Spinner, Table } from 'react-bootstrap'
+import { Button, Container, Nav, Navbar, NavLink, Spinner, Table } from 'react-bootstrap'
 import EditCategory from '../components/EditCategory.js'
 
 const AdminCategories = () => {
@@ -50,9 +50,17 @@ const AdminCategories = () => {
     }
 
     return (
-        <Container>
-            <h1>Категории</h1>
-            <Button onClick={() => handleCreateClick()}>Создать категорию</Button>
+        <Container className='w-auto'>
+            <Navbar bg="dark" variant="dark" className="w-100 rounded p-2">
+                <Container>
+                    <NavLink href="/" className="navbar-brand ml-5">Магазин</NavLink>
+                        <Nav className="ml-auto">
+                            <NavLink href="/admin" className="nav-link mr-5">Панель управления</NavLink>
+                        </Nav>
+                </Container>
+            </Navbar>
+            <h4 className='panel'>Категории</h4>
+            <Button className="mb-3 ml-3" onClick={() => handleCreateClick()}>Создать категорию</Button>
             <EditCategory id={categoryId} show={show} setShow={setShow} setChange={setChange} />
             {categories.length > 0 ? (
                 <Table bordered hover size="sm" className="mt-3">

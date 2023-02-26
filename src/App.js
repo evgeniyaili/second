@@ -2,7 +2,7 @@ import { BrowserRouter } from 'react-router-dom'
 import AppRouter from './components/AppRouter.js'
 //import NavBar from './components/NavBar.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import {WebApp} from '@grammyjs/web-app';
 import { AppContext } from './components/AppContext.js'
 import { check as checkAuth } from './http/userAPI.js'
 import { useState, useContext, useEffect } from 'react'
@@ -42,7 +42,6 @@ const App = observer(() => {
     return (
         <BrowserRouter>
             <Container className='container'>
-                
                 <AppRouter />
             </Container>
          </BrowserRouter>
