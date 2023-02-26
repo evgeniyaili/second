@@ -7,10 +7,10 @@ body{
     color:var(--tg-theme-text-color) ;
 }
 
-/* .container {
+.container {
     background: var(--tg-theme-bg-color) ;
     color:var(--tg-theme-text-color) ;
-}  */
+} 
 
 .navbar {
     background-color: #aba484;
