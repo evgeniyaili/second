@@ -1,7 +1,7 @@
 //import { Card } from 'react-bootstrap'
 //import { useContext, useEffect, useState } from 'react';
 import { Button, Image } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 //import { append } from '../http/basketAPI';
 // import { fetchOneProduct } from '../http/catalogAPI';
 // import { AppContext } from './AppContext';
