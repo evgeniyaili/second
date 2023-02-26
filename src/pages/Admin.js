@@ -1,7 +1,7 @@
-import { Container, Button, Navbar, Nav, ListGroup, ListGroupItem } from 'react-bootstrap'
+import { Container, Button, Navbar, Nav, ListGroup} from 'react-bootstrap'
 import { useContext } from 'react'
 import { AppContext } from '../components/AppContext.js'
-import { Link, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import { logout } from '../http/userAPI.js'
 import { NavLink } from 'react-router-dom'
 import "../components/styles.css";
