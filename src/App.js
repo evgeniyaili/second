@@ -18,7 +18,7 @@ import './App.css';
 const App = observer(() => {
     const { user, basket } = useContext(AppContext)
     const [loading, setLoading] = useState(true)
-
+    useEffect(()=>{tg.ready();},[])
     useEffect(() => {
         Promise.all([checkAuth(), fetchBasket()])
             .then(
