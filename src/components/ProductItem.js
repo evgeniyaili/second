@@ -11,7 +11,7 @@ import { hooks } from '../hooks/hooks';
 const {onClose} = hooks();
 const ProductItem = ({data}) => {
     const navigate = useNavigate()
-    const { id } = useParams()
+    //const { id } = useParams()
     //const { basket } = useContext(AppContext)
     //const [setProduct] = useState(null)
     // const [rating, setRating] = useState(null)
