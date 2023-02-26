@@ -14,6 +14,9 @@ import { fetchBasket } from './http/basketAPI.js'
 import axios from 'axios'
 import { Container } from 'react-bootstrap'
 import './App.css';
+import { hooks } from '../hooks/hooks';
+
+const {tg} = hooks();
 
 const App = observer(() => {
     const { user, basket } = useContext(AppContext)
