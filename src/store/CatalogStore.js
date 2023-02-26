@@ -10,7 +10,9 @@ class CatalogStore {
         ]
         this._brands = []
         this._products = [
-           
+            {id: 1, name: "Nike AF1", price: "2000000", img: ''},
+            {id: 2, name: "Nike AF1", price: "3000000", img: ''},
+            {id: 3, name: "Nike AF1", price: "4000000", img: ''},
             ]
             this._category = null // выбранная категория
             this._brand = null // выбранный бренд
