@@ -10,7 +10,11 @@ class CatalogStore {
         ]
         this._brands = []
         this._products = [
-               
+            {id: 1, name: "Nike AF1", price: "2000000", img: ''},
+            {id: 2, name: "Yeezy Boosts", price: "1231412", img: ''},
+            {id: 3, name: "Adidas Originals Hoodie", price: "202020", img: ''},
+            {id: 4, name: "Nike AirMax", price: "202020", img: ''},
+            {id: 5, name: "Nike Running", price: "202020", img: ''},
             ]
             this._category = null // выбранная категория
             this._brand = null // выбранный бренд
