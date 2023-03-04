@@ -1,13 +1,15 @@
 import { Pagination} from 'react-bootstrap'
 import ProductItem from './ProductItem.js'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { AppContext } from './AppContext.js'
 import { observer } from 'mobx-react-lite'
 import './styles.css';
 import { useNavigate, createSearchParams } from 'react-router-dom'
+import { hooks } from '../hooks/hooks.js'
 
 const ProductList = observer(() => {
     const { catalog } = useContext(AppContext)
+    const { basket } = useContext(AppContext)
     const navigate = useNavigate()
 
     const handleClick = (page) => {
@@ -34,8 +36,24 @@ const ProductList = observer(() => {
             >
                 {page}
             </Pagination.Item>
-        )
-    }
+        )}
+
+        const {tg} = hooks();
+
+        useEffect( () => {
+            tg.MainButton.setParams({
+                text: 'К оплате'
+            })
+        },[])
+
+        useEffect( () => {
+            if (!basket) {
+                tg.MainButton.hide();
+            } else {
+                tg.MainButton.show();
+            }
+        },[basket])
+    
 
     return (
         <>

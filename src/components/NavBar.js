@@ -9,21 +9,21 @@ import CategoryBar from "./CategoryBar";
 export default function App() {
   return (
     <Navbar collapseOnSelect expand={false} className="navbar" fixed="top">
-      <NavLink  href='/' className={'navlink nohover'}>
-        {/* <Logo
-          alt=""
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-        /> */}
-        <span>Shop</span>
-      </NavLink>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" className="toggle"/>
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto">
-                <CategoryBar/>
-        </Nav>
-      </Navbar.Collapse>
+        <NavLink  href='/' className={'navlink nohover'}>
+          {/* <Logo
+            alt=""
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          /> */}
+          <span>Shop</span>
+        </NavLink>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" className="toggle"/>
+              <Navbar.Collapse id="responsive-navbar-nav">
+                  <Nav className="mr-auto">
+                          <CategoryBar/>
+                  </Nav>
+              </Navbar.Collapse>
     </Navbar>
   );
 }

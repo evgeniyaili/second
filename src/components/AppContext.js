@@ -20,4 +20,4 @@ const AppContextProvider = (props) => {
     );
 }
 
-export {AppContext, AppContextProvider}
+export {AppContext, context, AppContextProvider}
