@@ -29,6 +29,7 @@
 }
 .product_img{
     margin-bottom:5px;
+    margin-top: 10px;
 }
 .product_page{
     display: flex;
@@ -54,6 +55,7 @@
 }
 .product_button{
     margin-top:20px;
+    padding-bottom: 20px;
 }
 .img{
     display: flex;
