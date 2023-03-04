@@ -44,7 +44,7 @@ const ProductList = observer(() => {
             tg.MainButton.setParams({
                 text: 'К оплате'
             })
-        },[])
+        },[tg.MainButton])
 
         useEffect( () => {
             if (!basket) {
@@ -52,7 +52,7 @@ const ProductList = observer(() => {
             } else {
                 tg.MainButton.show();
             }
-        },[basket])
+        },[basket,tg.MainButton])
     
 
     return (
