@@ -30,7 +30,7 @@ const ProductItem = ({data}) => {
         <div className="product" onClick={() => navigate(`/product/${data.id}`)}>
             <Image className="product_img" width={150} height={150} src={process.env.REACT_APP_IMG_URL + data.image}/>
                     <div className='name'>{data.name}</div>
-                    <Button  style={{backgroundColor: ""}} className="rounded-pill w-75 align-self-center d-flex justify-content-around border-0" size="sm" onClick={onClose}><div className='pricediv'>{data.price} ₽</div><div className='plusdiv'>+</div></Button>
+                    <Button  style={{backgroundColor: "#0088cc"}} className="rounded-pill w-75 align-self-center d-flex justify-content-around border-0" size="sm" onClick={onClose}><div className='pricediv'>{data.price} ₽</div><div className='plusdiv'>+</div></Button>
         </div>
     )
 }
