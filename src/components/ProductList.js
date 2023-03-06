@@ -9,7 +9,7 @@ import { useNavigate, createSearchParams } from 'react-router-dom'
 
 const ProductList = observer(() => {
     const { catalog } = useContext(AppContext)
-    const { basket } = useContext(AppContext)
+    //const { basket } = useContext(AppContext)
     const navigate = useNavigate()
 
     const handleClick = (page) => {
