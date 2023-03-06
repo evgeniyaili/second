@@ -1,11 +1,11 @@
 import { Pagination} from 'react-bootstrap'
 import ProductItem from './ProductItem.js'
-import { useCallback, useContext, useEffect } from 'react'
+import {  useContext} from 'react'
 import { AppContext } from './AppContext.js'
 import { observer } from 'mobx-react-lite'
 import './styles.css';
 import { useNavigate, createSearchParams } from 'react-router-dom'
-import { hooks } from '../hooks/hooks.js'
+//import { hooks } from '../hooks/hooks.js'
 
 const ProductList = observer(() => {
     const { catalog } = useContext(AppContext)
