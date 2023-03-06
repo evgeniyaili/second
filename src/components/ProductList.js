@@ -45,14 +45,14 @@ const ProductList = observer(() => {
                     basket
                 }
                 tg.sendData()
-        }, [])
+        }, [basket, tg])
 
         useEffect( () => {
             tg.WebApp.onEvent('mainButtonClicked', onSendData)
             return () => {
                 tg.WebApp.offEvent('mainButtonClicked', onSendData)
             }
-        },[])
+        },[onSendData,tg.WebApp])
 
         useEffect( () => {
             tg.MainButton.setParams({

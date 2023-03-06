@@ -24,9 +24,9 @@ const Product = () => {
         })
     }
 
-    // if (!product) {
-    //     return <Spinner animation="border" />
-    // }
+    if (!product) {
+        return <Spinner animation="border" />
+    }
 
     return (
         <div className='outer_container'>
