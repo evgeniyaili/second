@@ -1,6 +1,6 @@
 import { Pagination} from 'react-bootstrap'
 import ProductItem from './ProductItem.js'
-import { useContext, useEffect } from 'react'
+import { useCallback, useContext, useEffect } from 'react'
 import { AppContext } from './AppContext.js'
 import { observer } from 'mobx-react-lite'
 import './styles.css';
@@ -39,6 +39,20 @@ const ProductList = observer(() => {
         )}
 
         const {tg} = hooks();
+
+        const onSendData = useCallback( () => {
+                const data = {
+                    basket
+                }
+                tg.sendData()
+        }, [])
+
+        useEffect( () => {
+            tg.WebApp.onEvent('mainButtonClicked', onSendData)
+            return () => {
+                tg.WebApp.offEvent('mainButtonClicked', onSendData)
+            }
+        },[])
 
         useEffect( () => {
             tg.MainButton.setParams({
