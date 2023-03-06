@@ -4,7 +4,7 @@ import { Spinner } from 'react-bootstrap'
 import ProductList from '../components/ProductList.js'
 import { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../components/AppContext.js'
-import {  fetchAllProducts } from '../http/catalogAPI.js'
+import {  fetchAllProducts, fetchCategories } from '../http/catalogAPI.js'
 import { observer } from 'mobx-react-lite'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import NavBar from '../components/NavBar';
@@ -31,7 +31,7 @@ const getSearchParams = (searchParams) => {
 const Shop = observer(() => {
     const { catalog } = useContext(AppContext)
 
-    // const [categoriesFetching, setCategoriesFetching] = useState(true)
+    const [categoriesFetching, setCategoriesFetching] = useState(true)
     // const [brandsFetching, setBrandsFetching] = useState(true)
     const [productsFetching, setProductsFetching] = useState(true)
 
@@ -39,9 +39,9 @@ const Shop = observer(() => {
     const [searchParams] = useSearchParams()
 
     useEffect(() => {
-        // fetchCategories()
-        //     .then(data => catalog.categories = data)
-        //     .finally(() => setCategoriesFetching(false))
+        fetchCategories()
+            .then(data => catalog.categories = data)
+            .finally(() => setCategoriesFetching(false))
 
         // fetchBrands()
         //     .then(data => catalog.brands = data)
