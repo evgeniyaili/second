@@ -41,7 +41,7 @@ const Shop = observer(() => {
     useEffect(() => {
         fetchCategories()
             .then(data => catalog.categories = data)
-            .finally(() => setCategoriesFetching(false))
+            //.finally(() => setCategoriesFetching(false))
 
         // fetchBrands()
         //     .then(data => catalog.brands = data)
