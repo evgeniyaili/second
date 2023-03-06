@@ -41,11 +41,11 @@ const ProductList = observer(() => {
         const {tg} = hooks();
 
         const onSendData = useCallback( () => {
-                const data = {
-                    basket
-                }
+                // const data = {
+                //     basket
+                // }
                 tg.sendData()
-        }, [basket, tg])
+        }, [ tg])
 
         useEffect( () => {
             tg.WebApp.onEvent('mainButtonClicked', onSendData)
