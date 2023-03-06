@@ -31,7 +31,7 @@ const getSearchParams = (searchParams) => {
 const Shop = observer(() => {
     const { catalog } = useContext(AppContext)
 
-    const [categoriesFetching, setCategoriesFetching] = useState(true)
+    const [ setCategoriesFetching] = useState(true)
     // const [brandsFetching, setBrandsFetching] = useState(true)
     const [productsFetching, setProductsFetching] = useState(true)
 
@@ -103,7 +103,7 @@ const Shop = observer(() => {
             <NavBar/>
                 <div className="products">
                     <div>
-                        {productsFetching ? categoriesFetching (
+                        {productsFetching ? (
                             <Spinner animation="border" />
                         ) : (
                             <ProductList />
