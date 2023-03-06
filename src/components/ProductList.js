@@ -38,35 +38,35 @@ const ProductList = observer(() => {
             </Pagination.Item>
         )}
 
-        const {tg} = hooks();
+        // const {tg} = hooks();
 
-        const onSendData = useCallback( () => {
-                // const data = {
-                //     basket
-                // }
-                tg.sendData()
-        }, [ tg])
+        // const onSendData = useCallback( () => {
+        //         // const data = {
+        //         //     basket
+        //         // }
+        //         tg.sendData()
+        // }, [ tg])
 
-        useEffect( () => {
-            tg.WebApp.onEvent('mainButtonClicked', onSendData)
-            return () => {
-                tg.WebApp.offEvent('mainButtonClicked', onSendData)
-            }
-        },[onSendData,tg.WebApp])
+        // useEffect( () => {
+        //     tg.WebApp.onEvent('mainButtonClicked', onSendData)
+        //     return () => {
+        //         tg.WebApp.offEvent('mainButtonClicked', onSendData)
+        //     }
+        // },[onSendData,tg.WebApp])
 
-        useEffect( () => {
-            tg.MainButton.setParams({
-                text: 'К оплате'
-            })
-        },[tg.MainButton])
+        // useEffect( () => {
+        //     tg.MainButton.setParams({
+        //         text: 'К оплате'
+        //     })
+        // },[tg.MainButton])
 
-        useEffect( () => {
-            if (!basket) {
-                tg.MainButton.hide();
-            } else {
-                tg.MainButton.show();
-            }
-        },[basket,tg.MainButton])
+        // useEffect( () => {
+        //     if (!basket) {
+        //         tg.MainButton.hide();
+        //     } else {
+        //         tg.MainButton.show();
+        //     }
+        // },[basket,tg.MainButton])
     
 
     return (
