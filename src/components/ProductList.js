@@ -71,7 +71,7 @@ const ProductList = observer(() => {
         const getTotalPrice = (items = []) => {
             return items.reduce((acc,item)=>{
                 return acc += item.price
-            }, 0)
+            }, '')
         }
 
         const [addedItems, setAddedItems] = useState([]);
@@ -85,13 +85,14 @@ const ProductList = observer(() => {
                 newItems = [...addedItems, product];
             }
             setAddedItems(newItems)
+            const total = getTotalPrice(newItems)
 
             if(newItems.length === 0) {
                 tg.MainButton.hide();
             } else {
                 tg.MainButton.show();
                 tg.MainButton.setParams({
-                    text: `Buy ${getTotalPrice(newItems)}`
+                    text: 'Купить (' + total + 'руб. )'
                 })
         }}
     
