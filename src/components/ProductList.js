@@ -1,11 +1,11 @@
 import { Pagination} from 'react-bootstrap'
 import ProductItem from './ProductItem.js'
-import {  useContext} from 'react'
+import {  useContext, useState} from 'react'
 import { AppContext } from './AppContext.js'
 import { observer } from 'mobx-react-lite'
 import './styles.css';
 import { useNavigate, createSearchParams } from 'react-router-dom'
-//import { hooks } from '../hooks/hooks.js'
+import { hooks } from '../hooks/hooks.js'
 
 const ProductList = observer(() => {
     const { catalog } = useContext(AppContext)
@@ -38,14 +38,14 @@ const ProductList = observer(() => {
             </Pagination.Item>
         )}
 
-        // const {tg} = hooks();
+        const {tg} = hooks();
 
         // const onSendData = useCallback( () => {
-        //         // const data = {
-        //         //     basket
-        //         // }
+        //         const data = {
+        //             basket
+        //         }
         //         tg.sendData()
-        // }, [ tg])
+        // }, [basket, tg])
 
         // useEffect( () => {
         //     tg.WebApp.onEvent('mainButtonClicked', onSendData)
@@ -67,6 +67,33 @@ const ProductList = observer(() => {
         //         tg.MainButton.show();
         //     }
         // },[basket,tg.MainButton])
+
+        const getTotalPrice = (items = []) => {
+            return items.reduce((acc,item)=>{
+                return acc += item.price
+            }, 0)
+        }
+
+        const [addedItems, setAddedItems] = useState([]);
+        const onAdd = (product) => {
+            const alreadyAdded = addedItems.find(item => item.id === product.id);
+            let newItems = [];
+
+            if (alreadyAdded) {
+                newItems = addedItems.filter(item => item.id !== product.id);
+            } else {
+                newItems = [...addedItems, product];
+            }
+            setAddedItems(newItems)
+
+            if(newItems.length === 0) {
+                tg.MainButton.hide();
+            } else {
+                tg.MainButton.show();
+                tg.MainButton.setParams({
+                    text: `Купить ${getTotalPrice(newItems)}`
+                })
+        }}
     
 
     return (
@@ -74,7 +101,7 @@ const ProductList = observer(() => {
             <div className="product_list">
                 {catalog.products.length ? (
                     catalog.products.map(item =>
-                        <ProductItem className="product_item" key={item.id} data={item} />
+                        <ProductItem className="product_item"  key={item.id} product={item} onAdd={onAdd}/>
                     )
                 ) : (
                     <p className="p">По вашему запросу ничего не найдено</p>
