@@ -69,8 +69,10 @@ const ProductList = observer(() => {
         // },[basket,tg.MainButton])
 
         const getTotalPrice = (items = []) => {
-            return items.reduce((acc,item)=>
-                (acc += item.price))
+            let sum = 0;
+            items.map((item)=>{
+                sum += item
+            })
         }
 
         const [addedItems, setAddedItems] = useState([]);
