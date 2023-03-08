@@ -70,8 +70,8 @@ const ProductList = observer(() => {
 
         const getTotalPrice = (items = []) => {
             return items.reduce((acc,item)=>{
-                return acc + item.price
-            }, 0)
+                return acc+=item
+            }, "")
         }
 
         const [addedItems, setAddedItems] = useState([]);
