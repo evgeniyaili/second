@@ -70,8 +70,8 @@ const ProductList = observer(() => {
 
         const getTotalPrice = (items = []) => {
             let sum = 0;
-            items.map((item)=>{
-                sum += item
+            items.map((sum,item)=>{
+                return sum += item
             })
         }
 
