@@ -32,11 +32,14 @@ const ProductItem = ({ product, onAdd}) => {
     //     })
     //}
     return (
-        <div className="product" onClick={() => navigate(`/product/${product.id}`)}>
-            <Image className="product_img" width={150} height={150} src={process.env.REACT_APP_IMG_URL + product.image}/>
+        <div className="product">
+             <div  onClick={() => navigate(`/product/${product.id}`)}>
+                <Image className="product_img" width={150} height={150} src={process.env.REACT_APP_IMG_URL + product.image}/>
                     <div className='name'>{product.name}</div>
-                    <Button  style={{backgroundColor: "#0088cc"}} className="rounded-pill w-75 align-self-center d-flex justify-content-around border-0" size="sm" onClick={onAddHandler}><div className='pricediv'>{product.price} ₽</div><div className='plusdiv'>+</div></Button>
+            </div>
+            <Button  style={{backgroundColor: "#0088cc"}} className="rounded-pill w-75 align-self-center d-flex justify-content-around border-0" size="sm" onClick={onAddHandler}><div className='pricediv'>{product.price} ₽</div><div className='plusdiv'>+</div></Button>
         </div>
+        
     )
 }
 
