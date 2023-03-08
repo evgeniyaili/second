@@ -70,7 +70,7 @@ const ProductList = observer(() => {
 
         const getTotalPrice = (items = []) => {
             return items.reduce((acc,item)=>{
-                return acc+=item
+                return acc+=item.price
             }, "")
         }
 
