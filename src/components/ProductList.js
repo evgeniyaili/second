@@ -91,7 +91,7 @@ const ProductList = observer(() => {
             } else {
                 tg.MainButton.show();
                 tg.MainButton.setParams({
-                    text: `Купить ${getTotalPrice(newItems)}`
+                    text: `Купить ( ${getTotalPrice(newItems)} руб.) `
                 })
         }}
     
