@@ -14,20 +14,20 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 
 
-const ProductItem = ({  product}) => {
+const ProductItem = ({  product, onAdd}) => {
 
-    // const onAddHandler = () =>{
-    //     onAdd(product);
-    // }
+    const onAddHandler = () =>{
+        onAdd(product);
+    }
     // const onDeleteHandler = () => {
     //     onDelete(product);
     // }
 
     const [counter, setCounter] = useState(0);
 
-    const handleOnClick = () => {
-        setCounter((prev) => prev+1)
-    }
+    // const handleOnClick = () => {
+    //     setCounter((prev) => prev+1)
+    // }
     const handleOnDel = () => {
         setCounter((prev) => (prev-1 < 0 ? 0 : prev-1))
     }
@@ -70,7 +70,7 @@ const ProductItem = ({  product}) => {
                 </Button>
                <Button
                variant='contained'
-                onClick={handleOnClick}
+                onClick={onAddHandler}
                 sx={{
                     flexBasis: counter === 0 ? "100%" : "45%",
                     minWidth: 0,
