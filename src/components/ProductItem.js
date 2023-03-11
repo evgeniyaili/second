@@ -14,23 +14,25 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 
 
-const ProductItem = ({  product, onAdd}) => {
+const ProductItem = ({  product, onAdd, onDelete}) => {
 
     const onAddHandler = () =>{
+        setCounter((prev) => prev+1)
         onAdd(product);
     }
-    // const onDeleteHandler = () => {
-    //     onDelete(product);
-    // }
+    const onDeleteHandler = () => {
+        setCounter((prev) => (prev-1 < 0 ? 0 : prev-1))
+        onDelete(product);
+    }
 
     const [counter, setCounter] = useState(0);
 
     // const handleOnClick = () => {
     //     setCounter((prev) => prev+1)
     // }
-    const handleOnDel = () => {
-        setCounter((prev) => (prev-1 < 0 ? 0 : prev-1))
-    }
+    // const handleOnDel = () => {
+    //     setCounter((prev) => (prev-1 < 0 ? 0 : prev-1))
+    // }
    
     const navigate = useNavigate()
     // const { basket } = useContext(AppContext)
@@ -56,7 +58,7 @@ const ProductItem = ({  product, onAdd}) => {
             <div className="buttons_container">
                 <Button className="delete_button"
                 variant='contained'
-                onClick={handleOnDel}
+                onClick={onDeleteHandler}
                 sx={{flexBasis: counter === 0 ? "0%" : "45%",
                 minWidth: 0,
                 backgroundColor: "#e64d44",

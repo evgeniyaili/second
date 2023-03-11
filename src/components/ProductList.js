@@ -92,6 +92,10 @@ const ProductList = observer(() => {
                     text: 'Купить (' + total + 'руб. )'
                 })
         }}
+
+        const onDelete = () => {
+
+        }
     
 
     return (
@@ -99,7 +103,7 @@ const ProductList = observer(() => {
             <div className="product_list">
                 {catalog.products.length ? (
                     catalog.products.map(item =>
-                        <ProductItem className="product_item"  key={item.id} product={item} onAdd={onAdd}/>
+                        <ProductItem className="product_item"  key={item.id} product={item} onAdd={onAdd} onDelete={onDelete}/>
                     )
                 ) : (
                     <p className="p">По вашему запросу ничего не найдено</p>
