@@ -17,15 +17,15 @@ const getSearchParams = (searchParams) => {
     if (category && /[1-9][0-9]*/.test(category)) {
         category = parseInt(category)
     }
-    let brand = searchParams.get('brand')
-    if (brand && /[1-9][0-9]*/.test(brand)) {
-        brand = parseInt(brand)
-    }
+    // let brand = searchParams.get('brand')
+    // if (brand && /[1-9][0-9]*/.test(brand)) {
+    //     brand = parseInt(brand)
+    // }
     let page = searchParams.get('page')
     if (page && /[1-9][0-9]*/.test(page)) {
         page = parseInt(page)
     }
-    return {category, brand, page}
+    return {category,  page}
 }
 
 const Shop = observer(() => {
@@ -47,12 +47,12 @@ const Shop = observer(() => {
         //     .then(data => catalog.brands = data)
         //     .finally(() => setBrandsFetching(false))
 
-        const {category, brand, page} = getSearchParams(searchParams)
+        const {category, page} = getSearchParams(searchParams)
         catalog.category = category
-        catalog.brand = brand
+        
         catalog.page = page ?? 1
 
-        fetchAllProducts(catalog.category, catalog.brand, catalog.page, catalog.limit)
+        fetchAllProducts(catalog.category, catalog.page, catalog.limit)
             .then(data => {
                 catalog.products = data.rows
                 catalog.count = data.count

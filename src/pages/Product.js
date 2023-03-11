@@ -1,4 +1,4 @@
-import {  Button, Image, Spinner } from 'react-bootstrap'
+import {  Button, Image } from 'react-bootstrap'
 import { useEffect, useState, useContext } from 'react'
 import { fetchOneProduct } from '../http/catalogAPI.js'
 import { useParams } from 'react-router-dom'
@@ -6,6 +6,8 @@ import { append } from '../http/basketAPI.js'
 import { AppContext } from '../components/AppContext.js'
 import "../components/styles.css";
 import NavBar from '../components/NavBar';
+import Lottie from "lottie-react";
+import animationData from '../lotties/9844-loading-40-paperplane.json';
 
 const Product = () => {
     const { id } = useParams()
@@ -23,9 +25,25 @@ const Product = () => {
             basket.products = data.products
         })
     }
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+          preserveAspectRatio: "xMidYMid slice"
+        }
+      };
 
     if (!product) {
-        return <Spinner animation="border" />
+        return (
+            <div>
+              <Lottie 
+                options={defaultOptions}
+                height={400}
+                width={400}
+              />
+            </div>
+          );
     }
 
     return (

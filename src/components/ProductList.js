@@ -1,6 +1,6 @@
 import { Pagination} from 'react-bootstrap'
 import ProductItem from './ProductItem.js'
-import {  useContext, useState} from 'react'
+import {   useContext,  useState} from 'react'
 import { AppContext } from './AppContext.js'
 import { observer } from 'mobx-react-lite'
 import './styles.css';
@@ -39,13 +39,23 @@ const ProductList = observer(() => {
         )}
 
         const {tg} = hooks();
+        const [addedItems, setAddedItems] = useState([]);
 
         // const onSendData = useCallback( () => {
         //         const data = {
-        //             basket
+        //           products: addedItems,
+        //           totalPrice: getTotalPrice(addedItems),
+        //           queryId
         //         }
-        //         tg.sendData()
-        // }, [basket, tg])
+        //         fetch('http://localhost:3002', {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+
+        //             },
+        //             body: JSON.stringify(data)
+        //         })
+        // }, [addedItems, queryId])
 
         // useEffect( () => {
         //     tg.WebApp.onEvent('mainButtonClicked', onSendData)
@@ -54,19 +64,6 @@ const ProductList = observer(() => {
         //     }
         // },[onSendData,tg.WebApp])
 
-        // useEffect( () => {
-        //     tg.MainButton.setParams({
-        //         text: 'К оплате'
-        //     })
-        // },[tg.MainButton])
-
-        // useEffect( () => {
-        //     if (!basket) {
-        //         tg.MainButton.hide();
-        //     } else {
-        //         tg.MainButton.show();
-        //     }
-        // },[basket,tg.MainButton])
 
         const getTotalPrice = (items = []) => {
             return items.reduce((acc,item)=>{
@@ -74,7 +71,7 @@ const ProductList = observer(() => {
             }, 0)
         }
 
-        const [addedItems, setAddedItems] = useState([]);
+        
         const onAdd = (product) => {
             const alreadyAdded = addedItems.find(item => item.id === product.id);
             let newItems = [];
