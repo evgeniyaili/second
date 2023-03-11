@@ -51,7 +51,13 @@ const ProductItem = ({  product, onAdd, onDelete}) => {
     //}
     return (
         <div className="product">
-             <div  onClick={() => navigate(`/product/${product.id}`)}>
+             <div className='item' onClick={() => navigate(`/product/${product.id}`)}>
+                <span className="notify-badge" style={{ 
+                    visibility: counter === 0 ? "hidden" : "visible",
+                    opacity: counter === 0 ? 0 : 1,
+                    transition: "visibility 0.2s ease-out, opacity 0.2s ease-out"
+                }}
+                    >{counter}</span>
                 <Image className="product_img" width={150} height={150} src={process.env.REACT_APP_IMG_URL + product.image}/>
                     <div className='name'>{product.name}</div>
             </div>

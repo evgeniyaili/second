@@ -12,7 +12,7 @@ import Loader from './components/Loader.js'
 import { fetchBasket } from './http/basketAPI.js'
 
 import axios from 'axios'
-import { Container } from 'react-bootstrap'
+//import { Container } from 'react-bootstrap'
 import './App.css';
 import { hooks } from './hooks/hooks';
 
@@ -44,9 +44,9 @@ const App = observer(() => {
 
     return (
         <BrowserRouter>
-            <Container className='container'>
+            
                 <AppRouter />
-            </Container>
+            
          </BrowserRouter>
     )
 })
