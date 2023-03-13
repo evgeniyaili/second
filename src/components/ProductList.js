@@ -64,7 +64,7 @@ const ProductList = observer((showPayment, setShowPayment) => {
             return () => {
                 tg.offEvent('mainButtonClicked', onSendData)
             }
-        },[onSendData,tg.WebApp])
+        },[onSendData,tg])
 
         
 
@@ -77,7 +77,7 @@ const ProductList = observer((showPayment, setShowPayment) => {
             return () => {
                 tg.offEvent('mainButtonClicked', onPayment)
             }
-        },[onPayment,tg.WebApp])
+        },[onPayment,tg])
 
 
         const getTotalPrice = (items = []) => {
