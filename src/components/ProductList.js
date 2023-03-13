@@ -60,9 +60,9 @@ const ProductList = observer((showPayment, setShowPayment) => {
         }, [addedItems, queryId])
 
         useEffect( () => {
-            tg.WebApp.onEvent('mainButtonClicked', onSendData)
+            tg.onEvent('mainButtonClicked', onSendData)
             return () => {
-                tg.WebApp.offEvent('mainButtonClicked', onSendData)
+                tg.offEvent('mainButtonClicked', onSendData)
             }
         },[onSendData,tg.WebApp])
 
@@ -73,9 +73,9 @@ const ProductList = observer((showPayment, setShowPayment) => {
         },[setShow]);
 
         useEffect( () => {
-            tg.WebApp.onEvent('mainButtonClicked', onPayment)
+            tg.onEvent('mainButtonClicked', onPayment)
             return () => {
-                tg.WebApp.offEvent('mainButtonClicked', onPayment)
+                tg.offEvent('mainButtonClicked', onPayment)
             }
         },[onPayment,tg.WebApp])
 
