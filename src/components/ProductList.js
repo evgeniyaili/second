@@ -66,9 +66,11 @@ const ProductList = observer((showPayment, setShowPayment) => {
             }
         },[onSendData,tg.WebApp])
 
-        const onPayment = () => {
+        
+
+        const onPayment = useCallback(() => {
             setShow((prev) => !prev)
-        }
+        },[setShow]);
 
         useEffect( () => {
             tg.WebApp.onEvent('mainButtonClicked', onPayment)
