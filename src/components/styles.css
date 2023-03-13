@@ -125,3 +125,12 @@
     font-size:10px;
     font-weight: 600;
 }
+
+.payment_container{
+    width: 380px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    background-color: lightgoldenrodyellow;
+}

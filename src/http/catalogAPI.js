@@ -74,7 +74,7 @@ export const deleteProduct = async (id) => {
     return data
 }
 
-export const fetchAllProducts = async (categoryId = null, brandId = null, page = 1, limit = 3) => {
+export const fetchAllProducts = async (categoryId = null, brandId = null, page = 1, limit = 100) => {
     let url = 'product/getall'
     // фильтрация товаров по категории и/или бренду
     if (categoryId) url = url + '/categoryId/' + categoryId

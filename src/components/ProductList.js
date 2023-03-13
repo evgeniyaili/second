@@ -1,14 +1,16 @@
 import { Pagination} from 'react-bootstrap'
 import ProductItem from './ProductItem.js'
-import {   useContext,  useState} from 'react'
+import {   useCallback, useContext,  useEffect,  useState} from 'react'
 import { AppContext } from './AppContext.js'
 import { observer } from 'mobx-react-lite'
 import './styles.css';
 import { useNavigate, createSearchParams } from 'react-router-dom'
 import { hooks } from '../hooks/hooks.js'
 
-const ProductList = observer(() => {
+const ProductList = observer((showPayment, setShowPayment) => {
     const { catalog } = useContext(AppContext)
+    const {show} = showPayment;
+    const {setShow} = setShowPayment;
     //const { basket } = useContext(AppContext)
     const navigate = useNavigate()
 
@@ -38,31 +40,42 @@ const ProductList = observer(() => {
             </Pagination.Item>
         )}
 
-        const {tg} = hooks();
+        const {tg, queryId} = hooks();
         const [addedItems, setAddedItems] = useState([]);
 
-        // const onSendData = useCallback( () => {
-        //         const data = {
-        //           products: addedItems,
-        //           totalPrice: getTotalPrice(addedItems),
-        //           queryId
-        //         }
-        //         fetch('http://localhost:3002', {
-        //             method: 'POST',
-        //             headers: {
-        //                 'Content-Type': 'application/json'
+        const onSendData = useCallback( () => {
+                const data = {
+                  products: addedItems,
+                  totalPrice: getTotalPrice(addedItems),
+                  queryId
+                }
+                fetch('http://localhost:3002', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
 
-        //             },
-        //             body: JSON.stringify(data)
-        //         })
-        // }, [addedItems, queryId])
+                    },
+                    body: JSON.stringify(data)
+                })
+        }, [addedItems, queryId])
 
-        // useEffect( () => {
-        //     tg.WebApp.onEvent('mainButtonClicked', onSendData)
-        //     return () => {
-        //         tg.WebApp.offEvent('mainButtonClicked', onSendData)
-        //     }
-        // },[onSendData,tg.WebApp])
+        useEffect( () => {
+            tg.WebApp.onEvent('mainButtonClicked', onSendData)
+            return () => {
+                tg.WebApp.offEvent('mainButtonClicked', onSendData)
+            }
+        },[onSendData,tg.WebApp])
+
+        const onPayment = () => {
+            setShow((prev) => !prev)
+        }
+
+        useEffect( () => {
+            tg.WebApp.onEvent('mainButtonClicked', onPayment)
+            return () => {
+                tg.WebApp.offEvent('mainButtonClicked', onPayment)
+            }
+        },[onPayment,tg.WebApp])
 
 
         const getTotalPrice = (items = []) => {
@@ -94,13 +107,13 @@ const ProductList = observer(() => {
         }}
 
         const onDelete = () => {
-
+            
         }
     
 
     return (
         <>
-            <div className="product_list">
+            <div className="product_list" style={{maxHeight: show? 0 : "100vh", transition: "max-height 0.2s ease-out, opasity 0.2s ease-out"}}>
                 {catalog.products.length ? (
                     catalog.products.map(item =>
                         <ProductItem className="product_item"  key={item.id} product={item} onAdd={onAdd} onDelete={onDelete}/>

@@ -35,23 +35,10 @@ const ProductItem = ({  product, onAdd, onDelete}) => {
     // }
    
     const navigate = useNavigate()
-    // const { basket } = useContext(AppContext)
-    //const [products, setProduct] = useState(null)
-    // // const [rating, setRating] = useState(null)
-
-    // useEffect(() => {
-    //     fetchOneProduct(product).then(data => setProduct(data))
-    //     // fetchProdRating(id).then(data => setRating(data))
-    // }, [product])
-
-    // const handleClick = (product) => {
-    //     append(product).then(data => {
-    //         basket.products = data.products
-    //     })
-    //}
+    
     return (
         <div className="product">
-             <div className='item' onClick={() => navigate(`/product/${product.id}`)}>
+             <div className='item' onClick={() => navigate(`/product/${product.name}`)}>
                 <span className="notify-badge" style={{ 
                     visibility: counter === 0 ? "hidden" : "visible",
                     opacity: counter === 0 ? 0 : 1,
@@ -94,7 +81,7 @@ const ProductItem = ({  product, onAdd, onDelete}) => {
                 </Button>
 
             </div>
-            {/* <Button  style={{backgroundColor: "#0088cc"}} className="rounded-pill w-75 align-self-center d-flex justify-content-around border-0" size="sm" onClick={onAddHandler}><div className='pricediv'>{product.price} ₽</div><div className='plusdiv'>+</div></Button> */}
+            
         </div>
         
     )

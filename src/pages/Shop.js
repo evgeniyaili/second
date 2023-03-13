@@ -9,6 +9,7 @@ import { observer } from 'mobx-react-lite'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import "../components/styles.css";
+import Payment from '../components/Payment'
 
 
 
@@ -47,12 +48,12 @@ const Shop = observer(() => {
         //     .then(data => catalog.brands = data)
         //     .finally(() => setBrandsFetching(false))
 
-        const {category, page} = getSearchParams(searchParams)
+        const {category, brand, page} = getSearchParams(searchParams)
         catalog.category = category
-        
+        catalog.brand = brand
         catalog.page = page ?? 1
 
-        fetchAllProducts(catalog.category, catalog.page, catalog.limit)
+        fetchAllProducts(catalog.category, catalog.brand, catalog.page, catalog.limit)
             .then(data => {
                 catalog.products = data.rows
                 catalog.count = data.count
@@ -85,33 +86,38 @@ const Shop = observer(() => {
         // eslint-disable-next-line
     }, [location.search])
 
+    const [showPayment, setShowPayment] = useState(false);
+
     // при клике на категорию, бренд, номер страницы или при нажатии кнопки  «Назад» 
     // браузера — получам с сервера список товаров, потому что это уже другой список
-    useEffect(() => {
-        setProductsFetching(true)
-        fetchAllProducts(catalog.category, catalog.brand, catalog.page, catalog.limit)
-            .then(data => {
-                catalog.products = data.rows
-                catalog.count = data.count
-            })
-            .finally(() => setProductsFetching(false))
-        // eslint-disable-next-line
-    }, [catalog.category, catalog.brand, catalog.page])
+    // useEffect(() => {
+    //     setProductsFetching(true)
+    //     fetchAllProducts(catalog.category, catalog.brand, catalog.page, catalog.limit)
+    //         .then(data => {
+    //             catalog.products = data.rows
+    //             catalog.count = data.count
+    //         })
+    //         .finally(() => setProductsFetching(false))
+    //     // eslint-disable-next-line
+    // }, [catalog.category, catalog.brand, catalog.page])
 
     return (
-        <div className='main_things'>
-            <NavBar/>
-                <div className="products">
-                    <div>
-                        { productsFetching || categoriesfetching ? (
-                            <Spinner animation="border" />
-                        ) : (
-                            <ProductList />
-                        )}
+        <div style={{height: "100vh"}}>
+            <div className='main_things'>
+                <NavBar/>
+                    <div className="products">
+                        <div>
+                            { productsFetching || categoriesfetching ? (
+                                <Spinner animation="border" />
+                            ) : (
+                                <ProductList showPayment={showPayment}/>
+                            )}
+                        </div>
                     </div>
-                </div>
-            
+            </div>
+            <Payment showPayment={showPayment} setShowPayment={setShowPayment}/>
         </div>
+        
     )
 })
 
