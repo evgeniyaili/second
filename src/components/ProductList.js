@@ -115,7 +115,11 @@ const ProductList = observer((showPayment, setShowPayment) => {
 
     return (
         <>
-            <div className="product_list" style={{maxHeight: show? 0 : "100vh", transition: "max-height 0.2s ease-out, opasity 0.2s ease-out"}}>
+            <div className="product_list" style={{
+            maxHeight: show? 0 : "100vh", 
+            transition: "max-height 0.2s ease-out, opasity 0.2s ease-out",
+            visibility: !show? "visible" : "hidden",
+            opacity: !show ? 1 : 0}}>
                 {catalog.products.length ? (
                     catalog.products.map(item =>
                         <ProductItem className="product_item"  key={item.id} product={item} onAdd={onAdd} onDelete={onDelete}/>
