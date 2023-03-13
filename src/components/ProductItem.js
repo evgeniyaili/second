@@ -15,9 +15,10 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 
 const ProductItem = ({  product, onAdd, onDelete}) => {
-
+    
+    const [counter, setCounter] = useState(0);
     const onAddHandler = () =>{
-        setCounter((prev) => prev+1)
+        //setCounter((prev) => prev+1)
         onAdd(product);
     }
     const onDeleteHandler = () => {
@@ -25,7 +26,7 @@ const ProductItem = ({  product, onAdd, onDelete}) => {
         onDelete(product);
     }
 
-    const [counter, setCounter] = useState(0);
+   
 
     // const handleOnClick = () => {
     //     setCounter((prev) => prev+1)
