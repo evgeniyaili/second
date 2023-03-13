@@ -40,31 +40,31 @@ const ProductList = observer((showPayment, setShowPayment) => {
             </Pagination.Item>
         )}
 
-        const {tg, queryId} = hooks();
+        const {tg} = hooks();
         const [addedItems, setAddedItems] = useState([]);
 
-        const onSendData = useCallback( () => {
-                const data = {
-                  products: addedItems,
-                  totalPrice: getTotalPrice(addedItems),
-                  queryId
-                }
-                fetch('http://localhost:3002', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
+        // const onSendData = useCallback( () => {
+        //         const data = {
+        //           products: addedItems,
+        //           totalPrice: getTotalPrice(addedItems),
+        //           queryId
+        //         }
+        //         fetch('http://localhost:3002', {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json'
 
-                    },
-                    body: JSON.stringify(data)
-                })
-        }, [addedItems, queryId])
+        //             },
+        //             body: JSON.stringify(data)
+        //         })
+        // }, [addedItems, queryId])
 
-        useEffect( () => {
-            tg.onEvent('mainButtonClicked', onSendData)
-            return () => {
-                tg.offEvent('mainButtonClicked', onSendData)
-            }
-        },[onSendData,tg])
+        // useEffect( () => {
+        //     tg.onEvent('mainButtonClicked', onSendData)
+        //     return () => {
+        //         tg.offEvent('mainButtonClicked', onSendData)
+        //     }
+        // },[onSendData,tg])
 
         
 
